@@ -47,6 +47,14 @@ public:
         else
             cout << Name << " is ready to move." << endl;
     }
+	
+	void setPrice(double Price){
+		Price = price;
+	}
+	
+	double getPrice(){
+		return Price;
+	}
 };
 
 class SportsCar:public Car {
