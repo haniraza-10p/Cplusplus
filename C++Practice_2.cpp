@@ -463,15 +463,181 @@ using namespace std;
 //  return 0;
 //}
 
-// exceptions
-int main () {
-  try
-  {
-    throw 20;
-  }
-  catch (int e)
-  {
-    cout << "An exception occurred. Exception No. " << e << '\n';
-  }
-  return 0;
+//// exceptions
+//int main () {
+//  try
+//  {
+//    throw 20;
+//  }
+//  catch (int e)
+//  {
+//    cout << "An exception occurred. Exception No. " << e << '\n';
+//  }
+//  return 0;
+//}
+
+//// function macro
+//#define getmax(a,b) ((a)>(b)?(a):(b))
+//
+//int main()
+//{
+//  int x=5, y;
+//  y= getmax(x,2);
+//  cout << y << endl;
+//  cout << getmax(7,x) << endl;
+//  return 0;
+//}
+
+//// standard macro names
+//int main()
+//{
+//  cout << "This is the line number " << __LINE__;
+//  cout << " of file " << __FILE__ << ".\n";
+//  cout << "Its compilation began " << __DATE__;
+//  cout << " at " << __TIME__ << ".\n";
+//  cout << "The compiler gives a __cplusplus value of " << __cplusplus;
+//  return 0;
+//}
+
+//// writing on a text file
+//#include <fstream>
+//int main () {
+//  ofstream myfile ("example.txt");
+//  if (myfile.is_open())
+//  {
+//    myfile << "This is a line.\n";
+//    myfile << "This is another line.\n";
+//    myfile.close();
+//  }
+//  else cout << "Unable to open file";
+//  return 0;
+//}
+
+//// reading a text file
+//#include <fstream>
+//#include <string>
+//int main () {
+//  string line;
+//  ifstream myfile ("example.txt");
+//  if (myfile.is_open())
+//  {
+//    while ( getline (myfile,line) )
+//    {
+//      cout << line << '\n';
+//    }
+//    myfile.close();
+//  }
+//
+//  else cout << "Unable to open file"; 
+//
+//  return 0;
+//}
+
+//// obtaining file size
+//#include <fstream>
+//int main () {
+//  streampos begin,end;
+//  ifstream myfile ("example.txt", ios::binary);
+//  begin = myfile.tellg();
+//  myfile.seekg (0, ios::end);
+//  end = myfile.tellg();
+//  myfile.close();
+//  cout << "size is: " << (end-begin) << " bytes.\n";
+//  return 0;
+//}
+
+////Smart pointer/Shared Pointer
+//int main(){
+//	shared_ptr<int> a = make_shared<int>();
+//}
+
+////Memory Allocation/Deallocation
+//int main(){
+//	
+//	int *p = NULL;
+//	p = new int;
+//	//or
+//	int *p1 = new int;
+//	//or
+//	int *p2 = new int(25);
+//	
+//	
+//	cout<<"Adress : "<<p<<" and Value : "<<*p<<endl; //Shows some garbage value present at theadress allocated
+//	cout<<"Adress : "<<p1<<" and Value : "<<*p1<<endl; //Shows some garbage value present at theadress allocated
+//	cout<<"Adress : "<<p2<<" and Value : "<<*p2<<endl; //Shows 25 value present at theadress allocated
+//	
+//	//Block Memory
+//    int *p3 = new int[10];
+//    
+//    //DeAllocation Memory
+//    delete p;
+//    delete p1;
+//    delete p2;
+//    delete[] p3;
+//	
+//	//Finishing Dangling Pointers    
+//    p=NULL;
+//	p1=NULL;
+//	p2=NULL;
+//	p3=NULL;    
+//
+//    return 0;
+//}
+
+////Somewhat real example of new and delete
+//int main() {
+//    int num;
+//    cout << "Enter total number of students: ";
+//    cin >> num;
+//    float* ptr;
+//    
+//    // memory allocation of num number of floats
+//    ptr = new float[num];
+//
+//    cout << "Enter GPA of students." << endl;
+//    for (int i = 0; i < num; ++i) {
+//        cout << "Student" << i + 1 << ": ";
+//        cin >> *(ptr + i);
+//    }
+//
+//    cout << "\nDisplaying GPA of students." << endl;
+//    for (int i = 0; i < num; ++i) {
+//        cout << "Student" << i + 1 << " :" << *(ptr + i) << endl;
+//    }
+//
+//    // ptr memory is released
+//    delete[] ptr;
+//
+//    return 0;
+//}
+
+//C++ new and delete Operator for Objects
+class Student {
+    int age;
+
+ public:
+    Student() {
+    	age=12;
+	}
+	//    Student() : age(12) {}
+
+    void getAge() {
+        cout << "Age = " << age << endl;
+    }
+};
+
+int main(){
+	
+	// dynamically declare Student object
+    Student* ptr = new Student();
+
+    // call getAge() function
+    ptr->getAge();
+
+    // ptr memory is released
+    delete ptr;
+
+	return 0;
 }
+
+
