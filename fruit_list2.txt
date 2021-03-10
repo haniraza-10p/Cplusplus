@@ -1,0 +1,8 @@
+apple
+banana
+mango
+peach
+apricot
+grapes
+melon
+guava
