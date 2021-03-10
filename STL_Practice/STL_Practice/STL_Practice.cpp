@@ -266,6 +266,41 @@ using namespace std;
 //    cout << dq1.size() << endl;
 //}
 
+//Stack
+//#include<stack>
+//void showstack(stack <int> s)
+//{
+//    while (!s.empty())
+//    {
+//        cout << '\t' << s.top();
+//        s.pop();
+//    }
+//    cout << '\n';
+//}
+//
+//int main()
+//{
+//    stack <int> s;
+//    s.push(10);
+//    s.push(30);
+//    s.push(20);
+//    s.push(5);
+//    s.push(1);
+//
+//    cout << "The stack is : ";
+//    showstack(s);
+//
+//    cout << "\ns.size() : " << s.size();
+//    cout << "\ns.top() : " << s.top();
+//
+//
+//    cout << "\ns.pop() : ";
+//    s.pop();
+//    showstack(s);
+//
+//    return 0;
+//}
+
 //Iterator in STL
 //syntax container_type <parameter_list>::iterator iterator_name;
 //#include<vector>
@@ -934,3 +969,114 @@ using namespace std;
 //
 //    /* now v2 is : 1,2,6,24,120 */
 //}
+
+// Min/Max Functions
+//bool myMaxCompare(string a, string b)
+//{
+//    return (a.size() < b.size());
+//}
+//
+//bool myMinCompare(string a, string b)
+//{
+//    return (a.size() < b.size());
+//}
+//
+//int main()
+//{
+//    int x = 4, y = 5;
+//
+//    cout << max(x, y);   // prints 5
+//    cout << min(x, y);   // prints 4
+//
+//    cout << max(2.312, 5.434);     // prints 5.434
+//    cout << min(2.312, 5.434) << endl;     // prints 2.312
+//
+//    string s = "smaller string";
+//    string t = "longer string---";
+//
+//    string s1 = max(s, t, myMaxCompare);
+//    cout << s1 << endl;  // prints longer string---
+//
+//    string s2 = min(s, t, myMinCompare);
+//    cout << s2 << endl;  // prints smaller string
+//}
+
+//Min/Max
+//int main()
+//{
+//    pair<int, int> p;
+//
+//    p = minmax(2, 3);
+//    /* now p.first = 2 ( smaller element )
+//    And p.second = 3 ( larger element )   */
+//
+//    pair<string, string> p2;
+//
+//    p2 = minmax("abcd", "abce");
+//    /* p2.first = "abcd" ( lexicographically smaller string )
+//    And p2.second = "abce" (lexicographically larger string )  */
+//
+//    p = minmax(2, 2);
+//    /* p.first = p.second = 2 , */
+//
+//    /* minmax can also be used for number of elements */
+//
+//    p = minmax({ 2,6,5,4,9,8 });
+//    /* now p.first = 2 ( smaller element )
+//    And p.second = 9 ( larger element )   */
+//}
+
+//Minmax_Element
+//#include<array>
+//int main()
+//{
+//    array<int, 7> foo{ 3,7,2,9,5,8,6 };
+//
+//    auto result = minmax_element(foo.begin(), foo.end());
+//
+//    // print result:
+//    cout << "min is " << *result.first;
+//    cout << "max is " << *result.second;
+//}
+
+
+#include<vector>
+int main()
+{
+    char s[] = "abcd";
+    next_permutation(s, s + 4);
+    cout << s << endl;
+    /* prints "abdc" */
+
+    prev_permutation(s, s + 4);
+    cout << s << endl;
+    /* prints "dcba" */
+
+    int a[] = { 1,2,3,4 };
+
+    next_permutation(a, a + 4);
+    /* now a is 1,2,4,3  */
+
+    vector<int> v(a, a + 4);
+    /* v is : 1,2,4,3  */
+
+    next_permutation(v.begin(), v.end());
+    /* now v is : 1,3,2,4 */
+
+    /* resetting a[] for prev_permutation */
+    int b[] = { 1,2,3,4 };
+
+    prev_permutation(b, b + 4);
+    /* now a is 4,3,2,1  */
+
+    vector<int> v1(b, b + 4);
+    /* v is : 4,3,2,1  */
+    prev_permutation(v1.begin(), v1.end());
+    /* now v is : 4,3,1,2 */
+
+    for (int i = 0; i < 4; i++) {
+        cout << v1[i]<<" ";
+    }
+
+    return 0;
+}
